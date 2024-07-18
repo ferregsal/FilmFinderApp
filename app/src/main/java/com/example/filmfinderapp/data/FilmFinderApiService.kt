@@ -1,13 +1,13 @@
 package com.example.filmfinderapp.data
 
-import com.example.superheroesapp.data.Superhero
-import com.example.superheroesapp.data.SuperheroResponse
+
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface FilmFinderApiService {
-    @GET("search/{name}")
-    suspend fun findSuperheroesByName(@Path("name") query: String) : SuperheroResponse
-    @GET("{id}")
-    suspend fun getSuperheroById(@Path("id")id:Int) : Superhero
+    @GET("/?apikey=a9f9ac01")
+        suspend fun findFilmByTitle(@Query("s") title: String) : FilmFinderResponse
+    @GET("/?apikey=a9f9ac01")
+    suspend fun getFilmById(@Query("i")id:String) : Film
 }
